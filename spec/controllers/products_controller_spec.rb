@@ -25,7 +25,7 @@ describe ProductsController do
   # update the return value of this method accordingly.
   def valid_attributes
     {title: "Ejemplo", description: "Description ejemplo",
-      image_url: "image_url", price: 4.33}
+      image_url: "image_url.png", price: 4.33}
   end
 
   # This should return the minimal set of values that should be in the session

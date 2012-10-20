@@ -35,8 +35,8 @@ group :test do
 	gem 'cucumber-rails', '~>1.2.1', :require => false
 	gem 'database_cleaner', '~>0.7.0'
 end
-gem 'annotate', '~>2.5.0', group: :development
 
+gem 'annotate', '~>2.5.0', group: :development
 gem 'pg', '~>0.12.2'
 gem 'jquery-rails'
 gem 'faker', '1.0.1'
