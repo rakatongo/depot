@@ -14,7 +14,9 @@
 class Product < ActiveRecord::Base
 	
   attr_accessible :description, :image_url, :price, :title
+  default_scope :order => 'title'
 
+  
   format_image = %r{\.(gif|jpg|png)$}i
   validates :description, :image_url, :title, presence: true
   validates :price, :numericality => {:greater_than => :precio_minimo}
