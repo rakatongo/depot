@@ -14,6 +14,8 @@
 class Product < ActiveRecord::Base
 	
   attr_accessible :description, :image_url, :price, :title
+  has_many :line_items
+  before_destroy  :ensure_not_reference_by_any_line_items
   default_scope :order => 'title'
 
   
@@ -29,4 +31,14 @@ class Product < ActiveRecord::Base
   def precio_minimo
   	return 0.05
   end
+
+  def ensure_not_reference_by_any_line_items
+    if line_items.empty?
+      return true
+    else
+      errors.add(:base,'Line Item present')
+      return false
+    end
+  end
+
 end

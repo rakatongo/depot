@@ -5,11 +5,12 @@
 <h1>Your pragmatic catalog</h1>
 <% @products.each do |v| %>
 	<div class="entry">
-		<%= image_tag(v.image_url) %>
+		<%= link_to(image_tag(v.image_url), line_items_path(:product_id => v), method: :post) %>
 		<h3><%= v.title %></h3>
 		<%= sanitize(v.description) %>
 		<div class="price_line">
 			<span class="price"><%= number_to_currency v.price %></span>
+			<%= button_to 'Add to Cart', line_items_path(:product_id => v) %>
 		</div>
 	</div>
 <% end %>
